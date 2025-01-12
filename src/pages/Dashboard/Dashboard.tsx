@@ -27,16 +27,11 @@ const Dashboard = () => {
 
       <main
         className={`transition-all duration-300 ease-in-out
-          ${isCollapsed ? 'lg:ml-20' : 'lg:ml-64'}
+          ${isCollapsed ? "lg:ml-20" : "lg:ml-64"}
           pt-16 lg:pt-0`}
       >
         <Navbar />
-
-        <div className="p-4 lg:p-8">
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <Outlet />
-          </div>
-        </div>
+        <Outlet />
       </main>
 
       {isMobileMenuOpen && (
