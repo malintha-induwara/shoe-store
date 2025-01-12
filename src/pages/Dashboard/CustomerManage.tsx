@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import { useState, useMemo } from "react";
 import { 
   Search, 
@@ -5,16 +6,12 @@ import {
   Eye, 
   Pencil, 
   Trash2, 
-  X,
-  Phone,
-  Mail,
-  MapPin,
-  User,
   ChevronUp,
   ChevronDown
 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import CustomerModal from "../../components/CustomerModal";
 
 interface Customer {
   id: number;
@@ -28,6 +25,11 @@ type SortField = 'name' | 'email' | 'mobile' | 'address';
 type SortOrder = 'asc' | 'desc';
 
 const CustomerManage = () => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState<'view' | 'edit' | 'add'>('view');
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
@@ -38,6 +40,49 @@ const CustomerManage = () => {
 
   const customers = useSelector((state:RootState ) => state.customer);
   
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setAddress("");
+  };
+
+
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const customerData = {
+      name,
+      email,
+      phone,
+      address
+    };
+
+    if (modalMode === 'add') {
+      console.log('Adding customer:', customerData);
+    } else if (modalMode === 'edit' && selectedCustomer) {
+      console.log('Editing customer:', { ...customerData, id: selectedCustomer.id });
+    }
+    
+    setIsModalOpen(false);
+    resetForm();
+  };
+
+  const handleAction = (action: 'view' | 'edit' | 'add', customer?: Customer) => {
+    setModalMode(action);
+    if (customer && (action === 'view' || action === 'edit')) {
+      setSelectedCustomer(customer);
+      setName(customer.name);
+      setEmail(customer.email);
+      setPhone(customer.mobile);
+      setAddress(customer.address);
+    } else {
+      setSelectedCustomer(null);
+      resetForm();
+    }
+    setIsModalOpen(true);
+  };
+
   
   const filteredAndSortedCustomers = useMemo(() => {
     let result = [...customers];
@@ -80,23 +125,6 @@ const CustomerManage = () => {
     return sortOrder === 'asc' 
       ? <ChevronUp className="h-4 w-4 text-blue-500" />
       : <ChevronDown className="h-4 w-4 text-blue-500" />;
-  };
-
-  const handleAction = (action: 'view' | 'edit' | 'add', customer?: Customer) => {
-    setModalMode(action);
-    setSelectedCustomer(customer || null);
-    setIsModalOpen(true);
-  };
-
-  const getModalTitle = () => {
-    switch (modalMode) {
-      case 'view':
-        return 'Customer Details';
-      case 'edit':
-        return 'Edit Customer';
-      case 'add':
-        return 'Add New Customer';
-    }
   };
 
   return (
@@ -183,101 +211,20 @@ const CustomerManage = () => {
           </table>
         </div>
       </div>
-
-      <dialog
-        className="fixed inset-0 z-50 overflow-auto bg-white rounded-lg shadow-xl p-0 w-full max-w-md mx-auto mt-24"
-        open={isModalOpen}
-      >
-        <div className="bg-white rounded-lg">
-          <div className="flex items-center justify-between p-4 border-b">
-            <h3 className="text-lg font-semibold text-gray-900">{getModalTitle()}</h3>
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="text-gray-400 hover:text-gray-500"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          <div className="p-4 space-y-4">
-            <div className="space-y-4">
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  <input
-                    type="text"
-                    className="pl-10 w-full border rounded-lg py-2 px-3"
-                    value={selectedCustomer?.name || ''}
-                    readOnly={modalMode === 'view'}
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  <input
-                    type="email"
-                    className="pl-10 w-full border rounded-lg py-2 px-3"
-                    value={selectedCustomer?.email || ''}
-                    readOnly={modalMode === 'view'}
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Mobile</label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  <input
-                    type="tel"
-                    className="pl-10 w-full border rounded-lg py-2 px-3"
-                    value={selectedCustomer?.mobile || ''}
-                    readOnly={modalMode === 'view'}
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                  <input
-                    type="text"
-                    className="pl-10 w-full border rounded-lg py-2 px-3"
-                    value={selectedCustomer?.address || ''}
-                    readOnly={modalMode === 'view'}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-end gap-3 p-4 border-t">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg"
-            >
-              Cancel
-            </button>
-            {modalMode !== 'view' && (
-              <button
-                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg"
-              >
-                {modalMode === 'edit' ? 'Save Changes' : 'Add Customer'}
-              </button>
-            )}
-          </div>
-        </div>
-      </dialog>
-      {isModalOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={() => setIsModalOpen(false)}
-        ></div>
-      )}
+      <CustomerModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        mode={modalMode}
+        name={name}
+        email={email}
+        phone={phone}
+        address={address}
+        setName={setName}
+        setEmail={setEmail}
+        setPhone={setPhone}
+        setAddress={setAddress}
+        onSubmit={handleFormSubmit}
+      />
     </div>
   );
 };
