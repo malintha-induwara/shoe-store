@@ -13,6 +13,8 @@ import {
   ChevronUp,
   ChevronDown
 } from "lucide-react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 interface Customer {
   id: number;
@@ -33,86 +35,10 @@ const CustomerManage = () => {
   const [sortField, setSortField] = useState<SortField>('name');
   const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
 
-  const [customers] = useState<Customer[]>([
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      mobile: "+1 234-567-8901",
-      address: "123 Main St, City, Country"
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      mobile: "+1 234-567-8902",
-      address: "456 Oak Ave, Town, Country"
-    },
-    {
-      id: 3,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 4,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 5,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 6,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 7,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 8,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 9,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 10,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-    {
-      id: 11,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      mobile: "+1 234-567-8903",
-      address: "789 Pine Rd, Village, Country"
-    },
-  ]);
 
+  const customers = useSelector((state:RootState ) => state.customer);
+  
+  
   const filteredAndSortedCustomers = useMemo(() => {
     let result = [...customers];
 

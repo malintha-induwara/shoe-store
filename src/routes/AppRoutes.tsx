@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router";
 import Login from "../pages/Auth/Login";
 import SignUp from "../pages/Auth/SignUp";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import DashboardLayout from "../pages/Dashboard/DashboardLayout";
 
 // import Dashboard from "../pages/Dashboard/Dashboard";
 // import CustomerManage from "../pages/Dashboard/CustomerManage";
@@ -26,7 +26,7 @@ const AppRoutes = () => {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <DashboardLayout />
             </ProtectedRoute>
           }
         >
