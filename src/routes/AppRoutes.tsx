@@ -14,7 +14,7 @@ import ProtectedRoute from "../ProtectedRoute";
 import DashboardOverview from "../pages/Dashboard/DahboardOverview";
 import CustomerManage from "../pages/Dashboard/CustomerManage";
 
-const AppRoutes = () => {
+function AppRoutes  () {
   return (
     <Router>
       <Routes>

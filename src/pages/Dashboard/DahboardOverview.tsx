@@ -1,4 +1,4 @@
-const DashboardOverview = () => {
+function DashboardOverview  ()  {
     const metrics = ['Total Sales', 'Active Users', 'New Orders', 'Revenue'];
   
     return (

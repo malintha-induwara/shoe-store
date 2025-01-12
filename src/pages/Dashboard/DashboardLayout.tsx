@@ -4,7 +4,7 @@ import { Menu } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 
-const DashboardLayout = () => {
+function DashboardLayout() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -42,6 +42,6 @@ const DashboardLayout = () => {
       )}
     </div>
   );
-};
+}
 
 export default DashboardLayout;

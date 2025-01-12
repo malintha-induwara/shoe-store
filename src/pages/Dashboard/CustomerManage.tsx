@@ -24,7 +24,7 @@ interface Customer {
 type SortField = 'name' | 'email' | 'mobile' | 'address';
 type SortOrder = 'asc' | 'desc';
 
-const CustomerManage = () => {
+function CustomerManage () {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");

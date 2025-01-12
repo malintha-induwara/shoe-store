@@ -1,6 +1,6 @@
 import { Bell, Search, UserCircle2 } from "lucide-react";
 
-const Navbar = () => {
+function Navbar() {
   return (
     <div className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 lg:px-8">
       <div className="flex-1 max-w-xl">
@@ -25,6 +25,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Navbar;

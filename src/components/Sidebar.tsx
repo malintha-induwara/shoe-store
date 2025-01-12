@@ -25,7 +25,7 @@ interface SidebarProps {
   isMobileMenuOpen: boolean;
 }
 
-const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileMenuOpen }: SidebarProps) => {
+function Sidebar  ({ isCollapsed, setIsCollapsed, isMobileMenuOpen }: SidebarProps)  {
   const navigate = useNavigate();
 
   return (
