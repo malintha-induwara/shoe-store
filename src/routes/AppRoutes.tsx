@@ -11,8 +11,8 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 // import Transactions from "../pages/Dashboard/Transactions";
 // import UserManage from "../pages/Dashboard/UserManage";
 import ProtectedRoute from "../ProtectedRoute";
-import DashboardOverview from "../components/DahboardOverview";
-import CustomerManage from "../components/CustomerManage";
+import DashboardOverview from "../pages/Dashboard/DahboardOverview";
+import CustomerManage from "../pages/Dashboard/CustomerManage";
 
 const AppRoutes = () => {
   return (
