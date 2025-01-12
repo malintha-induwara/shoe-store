@@ -86,10 +86,21 @@ const customerSlice = createSlice({
   initialState,
   reducers: {
     addCustomer: (state, action) => {
+      //This is to create a new id for the new customer
+      // based on the last id in the state
+
+      const lastId =
+        state.length > 0
+          ? Math.max(...state.map((customer) => customer.id))
+          : 0;
+      action.payload.id = lastId + 1;
+
       state.push(action.payload);
     },
     updateCustomer: (state, action) => {
-      const index = state.findIndex((customer) => customer.id === action.payload.id);
+      const index = state.findIndex(
+        (customer) => customer.id === action.payload.id
+      );
       state[index] = action.payload;
     },
     deleteCustomer: (state, action) => {
@@ -98,6 +109,6 @@ const customerSlice = createSlice({
   },
 });
 
-export const { addCustomer, updateCustomer, deleteCustomer } = customerSlice.actions;
+export const { addCustomer, updateCustomer, deleteCustomer } =
+  customerSlice.actions;
 export default customerSlice.reducer;
-

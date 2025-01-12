@@ -7,11 +7,11 @@ interface CustomerDialogProps {
   mode: "view" | "edit" | "add";
   name: string;
   email: string;
-  phone: string;
+  mobile: string;
   address: string;
   setName: (value: string) => void;
   setEmail: (value: string) => void;
-  setPhone: (value: string) => void;
+  setMobile: (value: string) => void;
   setAddress: (value: string) => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
@@ -22,11 +22,11 @@ function CustomerModal({
   mode,
   name,
   email,
-  phone,
+  mobile,
   address,
   setName,
   setEmail,
-  setPhone,
+  setMobile,
   setAddress,
   onSubmit,
 }: CustomerDialogProps) {
@@ -71,6 +71,7 @@ function CustomerModal({
                     <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="text"
+                      placeholder="Enter customer name"
                       className="pl-10 w-full border rounded-lg py-2 px-3"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -88,6 +89,7 @@ function CustomerModal({
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="email"
+                      placeholder="Enter customer email"
                       className="pl-10 w-full border rounded-lg py-2 px-3"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -105,9 +107,10 @@ function CustomerModal({
                     <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="tel"
+                      placeholder="Enter customer phone number"
                       className="pl-10 w-full border rounded-lg py-2 px-3"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      value={mobile}
+                      onChange={(e) => setMobile(e.target.value)}
                       readOnly={mode === "view"}
                       required
                     />
@@ -122,6 +125,7 @@ function CustomerModal({
                     <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="text"
+                      placeholder="Enter customer address"
                       className="pl-10 w-full border rounded-lg py-2 px-3"
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
