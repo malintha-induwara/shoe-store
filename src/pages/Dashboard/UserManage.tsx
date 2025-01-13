@@ -76,7 +76,6 @@ function UserManage() {
       setSelectedUser(user);
       setEmail(user.email);
       setRole(user.role);
-      // Don't set password for security reasons when viewing/editing
       setPassword("");
     } else {
       setSelectedUser(null);
@@ -203,7 +202,7 @@ function UserManage() {
                       user.role === 'Sales' ? 'bg-green-100 text-green-800' :
                       'bg-orange-100 text-orange-800'
                     }`}>
-                      {user.role}
+                      {user.role.toUpperCase()}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">

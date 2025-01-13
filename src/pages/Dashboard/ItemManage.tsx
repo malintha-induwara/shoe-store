@@ -154,20 +154,7 @@ function ItemManage() {
       <ChevronDown className="h-4 w-4 text-blue-500" />
     );
   };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "active":
-        return "text-green-600 bg-green-100";
-      case "inactive":
-        return "text-gray-600 bg-gray-100";
-      case "out-of-stock":
-        return "text-red-600 bg-red-100";
-      default:
-        return "text-gray-600 bg-gray-100";
-    }
-  };
-
+  
   return (
     <div className="p-4 lg:p-7 bg-gray-50 h-screen-[calc(100vh-4rem)] overflow-y-auto">
       <div className="mb-8">
@@ -250,9 +237,12 @@ function ItemManage() {
                   <td className="px-6 py-2 whitespace-nowrap">{item.qty}</td>
                   <td className="px-6 py-2 whitespace-nowrap">
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                        item.status
-                      )}`}
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${
+                         item.status === "active"? "bg-green-100 text-green-800" :
+                          item.status === "inactive"? "bg-gray-100 text-gray-800" :
+                          item.status === "out-of-stock"? "bg-red-100 text-red-800" :
+                          "bg-gray-100 text-gray-800"
+                      }`}
                     >
                       {item.status.toUpperCase()}
                     </span>
