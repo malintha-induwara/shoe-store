@@ -13,6 +13,7 @@ import DashboardLayout from "../pages/Dashboard/DashboardLayout";
 import ProtectedRoute from "../ProtectedRoute";
 import DashboardOverview from "../pages/Dashboard/DahboardOverview";
 import CustomerManage from "../pages/Dashboard/CustomerManage";
+import ItemManage from "../pages/Dashboard/ItemManage";
 
 function AppRoutes  () {
   return (
@@ -32,8 +33,8 @@ function AppRoutes  () {
         >
           <Route index element={<DashboardOverview/>} />
           <Route path="customer-manage" element={<CustomerManage />} />
-          {/* <Route path="item-manage" element={<ItemManage />} />
-          <Route path="order-manage" element={<OrderManage />} />
+          <Route path="item-manage" element={<ItemManage />} />
+          {/* <Route path="order-manage" element={<OrderManage />} />
           <Route path="staff-manage" element={<StaffManage />} />
           <Route path="transactions" element={<Transactions />} />
           <Route path="user-manage" element={<UserManage />} /> */}
