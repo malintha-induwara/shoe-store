@@ -3,8 +3,9 @@ import { Lock, Mail } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { login } from "../../reducers/AuthSlice"; 
-import LoginImage from "../../assets/login.png";
 import Auth from "../../models/Auth";
+import LoginImage from "../../assets/login.jpg";
+import Logo from '../../assets/logo.svg'
 
 const SignIn = () => {
   const [email, setEmail] = useState<string>("");
@@ -25,17 +26,18 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/2 flex flex-col justify-center px-16 bg-white">
+    <div className="min-h-screen flex flex-col-reverse md:flex-row">
+      <div className="w-full md:w-1/2 flex flex-col justify-center px-4 md:px-16 bg-white py-8 md:py-0">
         <div className="max-w-md w-full mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Welcome back</h2>
+            <img className="h-12 mx-auto mb-6"  src={Logo} alt="logo" />
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Welcome back</h2>
             <p className="mt-2 text-sm text-gray-600">
               Please sign in to your account
             </p>
           </div>
 
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Email
@@ -48,7 +50,7 @@ const SignIn = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 block w-full rounded-lg border border-gray-300 py-3 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="pl-10 block w-full rounded-lg border border-gray-300 py-2.5 md:py-3 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Enter your email"
                   required
                 />
@@ -67,7 +69,7 @@ const SignIn = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 block w-full rounded-lg border border-gray-300 py-3 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="pl-10 block w-full rounded-lg border border-gray-300 py-2.5 md:py-3 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Enter your password"
                   required
                 />
@@ -85,7 +87,7 @@ const SignIn = () => {
 
             <button
               type="submit"
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="w-full flex justify-center py-2.5 md:py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Sign in
             </button>
@@ -103,7 +105,7 @@ const SignIn = () => {
         </div>
       </div>
 
-      <div className="w-1/2 bg-blue-50">
+      <div className="w-full  md:w-1/2 h-48 md:h-auto bg-blue-50">
         <div className="h-full relative">
           <img
             src={LoginImage}

@@ -8,6 +8,7 @@ import {
   Settings,
   Package,
 } from "lucide-react";
+import Logo from '../assets/logo.svg';
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
@@ -37,7 +38,7 @@ function Sidebar  ({ isCollapsed, setIsCollapsed, isMobileMenuOpen }: SidebarPro
         bg-white border-r border-gray-200`}
     >
       <div className="h-16 flex items-center justify-between px-4 border-b border-gray-200">
-        {!isCollapsed && <span className="text-xl font-bold">Admin Panel</span>}
+        {!isCollapsed && <img  className="h-8 md:mx-auto" src={Logo} alt="Logo" /> }
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
           className="p-2 rounded-lg hover:bg-gray-100 hidden lg:block"

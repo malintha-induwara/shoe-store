@@ -1,11 +1,13 @@
 import { Lock, Mail } from "lucide-react";
-import LoginImage from "../../assets/login.png";
+import LoginImage from "../../assets/login.jpg";
+import Logo from "../../assets/logo.svg";
 
 const SignUp = () => {
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/2 flex flex-col justify-center px-16 bg-white">
+    <div className="min-h-screen  flex flex-col-reverse md:flex-row">
+      <div className="w-full md:w-1/2 flex flex-col justify-center px-16 bg-white">
         <div className="max-w-md w-full mx-auto">
+        <img className="h-12 mx-auto mb-6"  src={Logo} alt="logo" />
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">
               Create an account
@@ -87,7 +89,7 @@ const SignUp = () => {
         </div>
       </div>
 
-      <div className="w-1/2 bg-blue-50">
+      <div className="w-1/2  md:w-1/2 h-48 md:h-auto bg-blue-50">
         <div className="h-full relative">
           <img
             src={LoginImage}
