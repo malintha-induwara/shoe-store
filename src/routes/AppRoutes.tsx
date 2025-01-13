@@ -14,6 +14,7 @@ import ProtectedRoute from "../ProtectedRoute";
 import DashboardOverview from "../pages/Dashboard/DahboardOverview";
 import CustomerManage from "../pages/Dashboard/CustomerManage";
 import ItemManage from "../pages/Dashboard/ItemManage";
+import UserManage from "../pages/Dashboard/UserManage";
 
 function AppRoutes  () {
   return (
@@ -36,8 +37,8 @@ function AppRoutes  () {
           <Route path="item-manage" element={<ItemManage />} />
           {/* <Route path="order-manage" element={<OrderManage />} />
           <Route path="staff-manage" element={<StaffManage />} />
-          <Route path="transactions" element={<Transactions />} />
-          <Route path="user-manage" element={<UserManage />} /> */}
+          <Route path="transactions" element={<Transactions />} /> */}
+          <Route path="user-manage" element={<UserManage />} />
         </Route>
       </Routes>
     </Router>
