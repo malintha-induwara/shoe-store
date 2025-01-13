@@ -88,13 +88,8 @@ const customerSlice = createSlice({
     addCustomer: (state, action) => {
       //This is to create a new id for the new customer
       // based on the last id in the state
-
-      const lastId =
-        state.length > 0
-          ? Math.max(...state.map((customer) => customer.id))
-          : 0;
+      const lastId = state[state.length - 1].id;
       action.payload.id = lastId + 1;
-
       state.push(action.payload);
     },
     updateCustomer: (state, action) => {
