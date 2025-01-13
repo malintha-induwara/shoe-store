@@ -1,7 +1,7 @@
-import { FormEvent } from "react";
+import { FormEvent, useEffect, useRef } from "react";
 import { X, Phone, Mail, MapPin, User } from "lucide-react";
 
-interface CustomerDialogProps {
+interface CustomerModalProps {
   isOpen: boolean;
   onClose: () => void;
   mode: "view" | "edit" | "add";
@@ -29,7 +29,22 @@ function CustomerModal({
   setMobile,
   setAddress,
   onSubmit,
-}: CustomerDialogProps) {
+}: CustomerModalProps) {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+    const dialog = dialogRef.current;
+    if (dialog) {
+      dialog.showModal();
+      return () => {
+        dialog.close();
+      };
+    }
+  }, [isOpen]);
+
   const getModalTitle = () => {
     switch (mode) {
       case "view":
@@ -44,8 +59,8 @@ function CustomerModal({
   return (
     <>
       <dialog
+        ref={dialogRef}
         className="fixed inset-0 z-50 overflow-auto bg-white rounded-lg shadow-xl p-0 w-full max-w-md mx-auto mt-24"
-        open={isOpen}
       >
         <div className="bg-white rounded-lg">
           <div className="flex items-center justify-between p-4 border-b">
@@ -60,7 +75,7 @@ function CustomerModal({
             </button>
           </div>
 
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} method="dialog">
             <div className="p-4 space-y-4">
               <div className="space-y-4">
                 <div className="relative">

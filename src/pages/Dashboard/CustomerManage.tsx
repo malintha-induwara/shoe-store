@@ -66,9 +66,14 @@ function CustomerManage() {
       dispatch(updateCustomer({ ...customerData, id: selectedCustomer.id }));
     }
     
+    handleCloseModal();
+  };
+
+  const handleCloseModal = () => {
     setIsModalOpen(false);
     resetForm();
   };
+
 
   const handleAction = (
     action: "view" | "edit" | "add",
@@ -238,7 +243,7 @@ function CustomerManage() {
       </div>
       <CustomerModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={handleCloseModal}
         mode={modalMode}
         name={name}
         email={email}
