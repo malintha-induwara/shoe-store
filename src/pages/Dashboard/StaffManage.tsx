@@ -12,16 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import StaffModal from "../../components/StaffModal";
 import { addStaff, deleteStaff, updateStaff } from "../../reducers/StaffSlice";
-
-interface Staff {
-  id: number;
-  name: string;
-  email: string;
-  mobile: string;
-  address: string;
-  role: string;
-  hireDate: Date;
-}
+import Staff from "../../models/Staff";
 
 type SortField = "name" | "email" | "role";
 type SortOrder = "asc" | "desc";

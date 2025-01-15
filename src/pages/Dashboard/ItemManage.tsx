@@ -13,16 +13,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import ItemModal from "../../components/ItemModal";
 import { addItem, deleteItem, updateItem } from "../../reducers/ItemSlice";
+import Item from "../../models/Item";
 
-interface Item {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  size: string;
-  qty: number;
-  status: string;
-}
 
 type SortField = "name" | "price" | "size" | "qty" | "status";
 type SortOrder = "asc" | "desc";

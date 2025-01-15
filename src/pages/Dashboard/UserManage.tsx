@@ -13,12 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import UserModal from "../../components/UserModal";
 import { addUser, deleteUser, updateUser } from "../../reducers/UserSlice";
-
-interface User {
-  email: string;
-  password: string;
-  role: string;
-}
+import User from "../../models/User";
 
 type SortField = "email" | "role";
 type SortOrder = "asc" | "desc";

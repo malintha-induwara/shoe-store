@@ -13,14 +13,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import CustomerModal from "../../components/CustomerModal";
 import { addCustomer, deleteCustomer, updateCustomer } from "../../reducers/CustomerSlice";
+import Customer from "../../models/Customer";
 
-interface Customer {
-  id: number;
-  name: string;
-  email: string;
-  mobile: string;
-  address: string;
-}
 
 type SortField = "name" | "email" | "mobile" | "address";
 type SortOrder = "asc" | "desc";
