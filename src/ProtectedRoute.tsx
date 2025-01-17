@@ -1,16 +1,10 @@
 import { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router';
 import { useSelector } from "react-redux";
+import { RootState } from './store/store';
 
 interface ProtectedRouteProps {
   children: ReactNode;
-}
-
-interface RootState {
-  auth: {
-    isAuthenticated: boolean;
-    role: string;
-  };
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
