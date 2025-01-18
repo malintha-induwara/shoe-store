@@ -2,20 +2,13 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router";
 import Login from "../pages/Auth/Login";
 import SignUp from "../pages/Auth/SignUp";
 import DashboardLayout from "../pages/Dashboard/DashboardLayout";
-
-// import Dashboard from "../pages/Dashboard/Dashboard";
-// import CustomerManage from "../pages/Dashboard/CustomerManage";
-// import ItemManage from "../pages/Dashboard/ItemManage";
-// import OrderManage from "../pages/Dashboard/OrderManage";
-// import StaffManage from "../pages/Dashboard/StaffManage";
-// import Transactions from "../pages/Dashboard/Transactions";
-// import UserManage from "../pages/Dashboard/UserManage";
 import ProtectedRoute from "../ProtectedRoute";
 import DashboardOverview from "../pages/Dashboard/DahboardOverview";
 import CustomerManage from "../pages/Dashboard/CustomerManage";
 import ItemManage from "../pages/Dashboard/ItemManage";
 import UserManage from "../pages/Dashboard/UserManage";
 import StaffManage from "../pages/Dashboard/StaffManage";
+import OrderManage from "../pages/Dashboard/OrderManage";
 
 function AppRoutes  () {
   return (
@@ -37,8 +30,8 @@ function AppRoutes  () {
           <Route path="customer-manage" element={<CustomerManage />} />
           <Route path="item-manage" element={<ItemManage />} />
           <Route path="staff-manage" element={<StaffManage />} />
-          {/* <Route path="order-manage" element={<OrderManage />} />
-          <Route path="transactions" element={<Transactions />} /> */}
+          <Route path="order-manage" element={<OrderManage />} />
+          {/* <Route path="transactions" element={<Transactions />} /> */}
           <Route path="user-manage" element={<UserManage />} />
         </Route>
       </Routes>
