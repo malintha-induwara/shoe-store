@@ -1,4 +1,4 @@
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Layers } from "lucide-react";
 import { useNavigate } from "react-router";
 import {
   LayoutDashboard,
@@ -17,6 +17,7 @@ const navItems = [
   { icon: UserCircle, label: "Users", path: "/dashboard/user-manage" },
   { icon: Users, label: "Staff", path: "/dashboard/staff-manage" },
   { icon: Package, label: "Orders", path: "/dashboard/order-manage" },
+  { icon: Layers, label: "Transactions", path: "/dashboard/transactions" },
   { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 

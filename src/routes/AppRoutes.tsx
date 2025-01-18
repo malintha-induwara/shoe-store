@@ -9,6 +9,7 @@ import ItemManage from "../pages/Dashboard/ItemManage";
 import UserManage from "../pages/Dashboard/UserManage";
 import StaffManage from "../pages/Dashboard/StaffManage";
 import OrderManage from "../pages/Dashboard/OrderManage";
+import Transactions from "../pages/Dashboard/Transactions";
 
 function AppRoutes  () {
   return (
@@ -17,7 +18,6 @@ function AppRoutes  () {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-
         <Route
           path="/dashboard"
           element={
@@ -31,8 +31,8 @@ function AppRoutes  () {
           <Route path="item-manage" element={<ItemManage />} />
           <Route path="staff-manage" element={<StaffManage />} />
           <Route path="order-manage" element={<OrderManage />} />
-          {/* <Route path="transactions" element={<Transactions />} /> */}
           <Route path="user-manage" element={<UserManage />} />
+          <Route path="transactions" element={<Transactions />} />
         </Route>
       </Routes>
     </Router>
