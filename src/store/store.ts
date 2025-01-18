@@ -3,6 +3,7 @@ import customerSlice from '../reducers/CustomerSlice'
 import itemSlice from '../reducers/ItemSlice'
 import userSlice from '../reducers/UserSlice'
 import staffSlice from '../reducers/StaffSlice'
+import orderSlice from '../reducers/OrderSlice'
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
@@ -12,6 +13,7 @@ const store = configureStore({
     item: itemSlice,
     user: userSlice,
     staff: staffSlice,
+    order: orderSlice,
   },
 });
 

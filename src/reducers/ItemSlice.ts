@@ -16,7 +16,7 @@ const initialState: Item[] = [
       image: Image1,
       price: 120,
       size: "9",
-      qty: 1,
+      qty: 5,
       status: "active",
     },
     {
@@ -25,7 +25,7 @@ const initialState: Item[] = [
       image: Image2,
       price: 85,
       size: "10",
-      qty: 1,
+      qty: 8,
       status: "inactive",
     },
     {
@@ -34,7 +34,7 @@ const initialState: Item[] = [
       image: Image3,
       price: 95,
       size: "8",
-      qty: 1,
+      qty: 10,
       status: "out-of-stock",
     },
     {
@@ -43,7 +43,7 @@ const initialState: Item[] = [
       image: Image4,
       price: 60,
       size: "11",
-      qty: 1,
+      qty: 4,
       status: "active",
     },
     {
@@ -52,7 +52,7 @@ const initialState: Item[] = [
       image: Image5,
       price: 150,
       size: "9",
-      qty: 1,
+      qty: 20,
       status: "inactive",
     },
     {
@@ -61,7 +61,7 @@ const initialState: Item[] = [
       image: Image6,
       price: 110,
       size: "10",
-      qty: 1,
+      qty: 13,
       status: "active",
     },
     {
@@ -70,7 +70,7 @@ const initialState: Item[] = [
       image: Image7,
       price: 25,
       size: "8",
-      qty: 1,
+      qty: 18,
       status: "out-of-stock",
     },
     {
@@ -79,7 +79,7 @@ const initialState: Item[] = [
       image: Image8,
       price: 130,
       size: "11",
-      qty: 1,
+      qty: 9,
       status: "active",
     },
   ];
