@@ -14,7 +14,7 @@ interface AuthPayload {
 
 
 const MOCK_USERS = [
-  { email: "admin@example.com", password: "admin123", role: "ADMIN" },
+  { email: "admin1@example.com", password: "password123", role: "ADMIN" },
   { email: "user@example.com", password: "user123", role: "USER" },
 ];
 

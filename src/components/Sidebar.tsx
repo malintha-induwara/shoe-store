@@ -5,7 +5,7 @@ import {
   Users,
   ShoppingBag,
   UserCircle,
-  Settings,
+  Settings,ClipboardCheck,
   Package,
 } from "lucide-react";
 import Logo from '../assets/logo.svg';
@@ -18,6 +18,7 @@ const navItems = [
   { icon: Users, label: "Staff", path: "/dashboard/staff-manage" },
   { icon: Package, label: "Orders", path: "/dashboard/order-manage" },
   { icon: Layers, label: "Transactions", path: "/dashboard/transactions" },
+  { icon: ClipboardCheck, label: "Attendance", path: "/dashboard/attendance" },
   { icon: Settings, label: "Settings", path: "/dashboard/settings" },
 ];
 

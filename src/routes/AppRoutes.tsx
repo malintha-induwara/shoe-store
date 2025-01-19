@@ -11,6 +11,7 @@ import StaffManage from "../pages/Dashboard/StaffManage";
 import OrderManage from "../pages/Dashboard/OrderManage";
 import Transactions from "../pages/Dashboard/Transactions";
 import Settings from "../pages/Dashboard/Settings";
+import AttendanceManage from "../pages/Dashboard/AttendanceManage";
 
 function AppRoutes  () {
   return (
@@ -34,6 +35,7 @@ function AppRoutes  () {
           <Route path="order-manage" element={<OrderManage />} />
           <Route path="user-manage" element={<UserManage />} />
           <Route path="transactions" element={<Transactions />} />
+          <Route path="attendance" element={<AttendanceManage />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>

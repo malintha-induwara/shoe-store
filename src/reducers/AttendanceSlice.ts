@@ -258,7 +258,7 @@ const initialState:Attendance[] = [
             state[index] = action.payload;
         },
         deleteAttendance: (state, action) => {
-            return state.filter(attendance => attendance.id !== action.payload.id);
+            return state.filter(attendance => attendance.id !== action.payload);
         }
     }
 });
