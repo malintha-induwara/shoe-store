@@ -60,7 +60,7 @@ function CustomerModal({
     <>
       <dialog
         ref={dialogRef}
-        className="fixed inset-0 z-50 overflow-auto bg-white rounded-lg shadow-xl p-0 w-full max-w-md mx-auto mt-24"
+        className="bg-white rounded-lg shadow-xl w-full max-w-md"
       >
         <div className="bg-white rounded-lg">
           <div className="flex items-center justify-between p-4 border-b">
