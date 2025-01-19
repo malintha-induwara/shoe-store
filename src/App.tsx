@@ -1,7 +1,9 @@
+import AppRoutes from "./routes/AppRoutes"
+
 function App() {
   return (
     <>
-    <h1>Tailwind Check</h1>  
+      <AppRoutes/>
     </>
   )
 }
