@@ -25,9 +25,6 @@ A comprehensive **Shoe Store Management System** designed to streamline the oper
 
 ## Getting Started
 
-### Prerequisites
-- [List prerequisites like programming language versions, frameworks, libraries, or tools needed.]
-
 ### Installation
 1. Clone the repository:
    ```bash
